@@ -1,0 +1,19 @@
+#box {
+    width: 200px;
+    height: 100px;
+    background-color: lightblue;
+    text-align: center;
+    padding-top: 30px;
+}
+
+/* Style that will be toggled */
+.change {
+    background-color: yellow;
+    color: red;
+    font-weight: bold;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: blue;
+}

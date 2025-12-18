@@ -1,0 +1,18 @@
+.gmail-header{
+    background-color: #f1f3f4;
+    padding: 20px 200px;
+    display: flex;
+    align-items: center;
+    border-bottom: 5px solid #dadce0;
+    height: auto;
+}
+.searchbar{
+    flex: 1;
+    display: flex;
+    
+    background-color: white;
+    padding: 5px 150px;
+    
+    
+    border-radius: 100px;
+}

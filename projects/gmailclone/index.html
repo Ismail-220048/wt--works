@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gmail UI Clone</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f6f8fc;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== TOP BAR ===== */
+    .topbar {
+      height: 64px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #d19b97;
+      margin-right: 20px;
+    }
+
+    .search {
+      flex: 1;
+      background: #eef3fc;
+      padding: 10px 15px;
+      border-radius: 24px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .profile {
+      margin-left: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #1a73e8;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    /* ===== MAIN ===== */
+    .container {
+      flex: 1;
+      display: flex;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: 250px;
+      background: #ffffff;
+      padding: 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    .compose {
+      background: #c2e7ff;
+      padding: 12px;
+      border-radius: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .menu div {
+      padding: 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-bottom: 5px;
+    }
+
+    .menu div:hover {
+      background: #f1f3f4;
+    }
+
+    .menu .active {
+      background: #e8f0fe;
+      font-weight: bold;
+    }
+
+    /* ===== EMAIL LIST ===== */
+    .email-list {
+      flex: 1;
+      background: #ffffff;
+    }
+
+    .email {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .email:hover {
+      background: #f5f7f7;
+    }
+
+    .sender {
+      width: 200px;
+      font-weight: bold;
+    }
+
+    .subject {
+      flex: 1;
+      color: #555;
+    }
+
+    .time {
+      width: 80px;
+      text-align: right;
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* ===== TABS ===== */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .tab {
+      padding: 14px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .tab.active {
+      border-bottom: 3px solid #1a73e8;
+      color: #1a73e8;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+    .logo2 img{
+       margin-right: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #1a73e8;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="logo2"><img src="c:\Users\ISMAIL\OneDrive\Desktop\mailogo.jpg"></div>
+    <div class="logo">Gmail</div>
+    <input type="text" class="search" placeholder="Search mail" />
+    <div class="profile">I</div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="compose">+ Compose</div>
+      <div class="menu">
+        <div class="active" onclick="openTab(event,'primary')">Inbox</div>
+        <div onclick="openTab(event,'Starred')">Starred</div>
+        <div onclick="openTab(event,'Snoozed')">Snoozed</div>
+        <div onclick="openTab(event,'Sent')">Sent</div>
+        <div onclick="openTab(event,'Drafts')">Drafts</div>
+        <div onclick="openTab(event,'Spam')">Spam</div>
+      </div>
+    </div>
+
+    <!-- EMAIL LIST -->
+    <div class="email-list">
+
+      <!-- TOP TABS -->
+      <div class="tabs">
+        <div class="tab active" onclick="openTab(event,'primary')">Primary</div>
+        <div class="tab" onclick="openTab(event,'social')">Social</div>
+        <div class="tab" onclick="openTab(event,'promotions')">Promotions</div>
+      </div>
+
+      <!-- PRIMARY -->
+      <div id="primary" class="tab-content active">
+        <div class="email">
+          <div class="sender">Google</div>
+          <div class="subject">Security alert for your account</div>
+          <div class="time">10:45 AM</div>
+        </div>
+        <div class="email">
+          <div class="sender">GitHub</div>
+          <div class="subject">New sign-in from Chrome</div>
+          <div class="time">Yesterday</div>
+        </div>
+      </div>
+
+      <!-- SOCIAL -->
+      <div id="social" class="tab-content">
+        <div class="email">
+          <div class="sender">LinkedIn</div>
+          <div class="subject">You appeared in 5 searches</div>
+          <div class="time">9:12 AM</div>
+        </div>
+      </div>
+
+      <!-- PROMOTIONS -->
+      <div id="promotions" class="tab-content">
+        <div class="email">
+          <div class="sender">Ediglobe</div>
+          <div class="subject">Internship Completion Certificate</div>
+          <div class="time">2 days ago</div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR CONTENT -->
+      <div id="Starred" class="tab-content">
+        <div class="email"><div class="sender">Google</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+              <div class="email"><div class="sender">microdoft</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+        <div class="email"><div class="sender">bug-crowd</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+        <div class="email"><div class="sender">hackerone</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+        <div class="email"><div class="sender">Ediglobe</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+        <div class="email"><div class="sender">insatgram</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+        <div class="email"><div class="sender">yahoo</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+        <div class="email"><div class="sender">noukari</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+
+      </div>
+
+      <div id="Snoozed" class="tab-content">
+        <div class="email"><div class="sender">GitHub</div><div class="subject">Snoozed mail</div><div class="time">Yesterday</div></div>
+      </div>
+
+      <div id="Sent" class="tab-content">
+        <div class="email"><div class="sender">You</div><div class="subject">Sent mail</div><div class="time">Mon</div></div>
+      </div>
+
+      <div id="Drafts" class="tab-content">
+        <div class="email"><div class="sender">Draft</div><div class="subject">Unsent mail</div><div class="time">---</div></div>
+      </div>
+
+      <div id="Spam" class="tab-content">
+        <div class="email"><div class="sender">Unknown</div><div class="subject">You won a prize!</div><div class="time">---</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JS (FIXED) -->
+  <script>
+    function openTab(event, tabId) {
+
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.menu div').forEach(m => m.classList.remove('active'));
+      document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
