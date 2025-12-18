@@ -20,7 +20,6 @@
       flex-direction: column;
     }
 
-    /* ===== TOP BAR ===== */
     .topbar {
       height: 64px;
       background: #ffffff;
@@ -60,13 +59,12 @@
       font-weight: bold;
     }
 
-    /* ===== MAIN ===== */
     .container {
       flex: 1;
       display: flex;
     }
 
-    /* ===== SIDEBAR ===== */
+    
     .sidebar {
       width: 250px;
       background: #ffffff;
@@ -100,7 +98,7 @@
       font-weight: bold;
     }
 
-    /* ===== EMAIL LIST ===== */
+    
     .email-list {
       flex: 1;
       background: #ffffff;
@@ -135,7 +133,7 @@
       color: #888;
     }
 
-    /* ===== TABS ===== */
+   
     .tabs {
       display: flex;
       border-bottom: 1px solid #ddd;
@@ -178,7 +176,7 @@
 
 <body>
 
-  <!-- TOP BAR -->
+ 
   <div class="topbar">
     <div class="logo2"><img src="c:\Users\ISMAIL\OneDrive\Desktop\mailogo.jpg"></div>
     <div class="logo">Gmail</div>
@@ -186,10 +184,10 @@
     <div class="profile">I</div>
   </div>
 
-  <!-- MAIN -->
+  
   <div class="container">
 
-    <!-- SIDEBAR -->
+  
     <div class="sidebar">
       <div class="compose">+ Compose</div>
       <div class="menu">
@@ -202,17 +200,16 @@
       </div>
     </div>
 
-    <!-- EMAIL LIST -->
+   
     <div class="email-list">
 
-      <!-- TOP TABS -->
+      
       <div class="tabs">
         <div class="tab active" onclick="openTab(event,'primary')">Primary</div>
         <div class="tab" onclick="openTab(event,'social')">Social</div>
         <div class="tab" onclick="openTab(event,'promotions')">Promotions</div>
       </div>
 
-      <!-- PRIMARY -->
       <div id="primary" class="tab-content active">
         <div class="email">
           <div class="sender">Google</div>
@@ -226,7 +223,7 @@
         </div>
       </div>
 
-      <!-- SOCIAL -->
+      
       <div id="social" class="tab-content">
         <div class="email">
           <div class="sender">LinkedIn</div>
@@ -235,7 +232,7 @@
         </div>
       </div>
 
-      <!-- PROMOTIONS -->
+      
       <div id="promotions" class="tab-content">
         <div class="email">
           <div class="sender">Ediglobe</div>
@@ -244,7 +241,7 @@
         </div>
       </div>
 
-      <!-- SIDEBAR CONTENT -->
+      
       <div id="Starred" class="tab-content">
         <div class="email"><div class="sender">Google</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
               <div class="email"><div class="sender">microdoft</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
@@ -276,7 +273,7 @@
     </div>
   </div>
 
-  <!-- JS (FIXED) -->
+  
   <script>
     function openTab(event, tabId) {
 
