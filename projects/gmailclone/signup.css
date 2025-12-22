@@ -1,0 +1,34 @@
+ input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    border-color: blueviolet;
+    background-color: transparent   ;
+
+        }
+.form-box {
+    width: 400px;
+    margin: auto;
+    background-color:transparent;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 20PX 20PX 50px;
+   
+        }
+body{
+    background-image: url('c:\\Users\\ISMAIL\\Downloads\\pexels-mali-45987.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+h3{
+    color: rgb(82, 206, 228);
+}
+.btn{
+    margin-left: 150px;
+    background-color: transparent;
+    border-radius: 25px;
+    width: 100px;
+}

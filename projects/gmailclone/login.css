@@ -1,0 +1,42 @@
+#user{
+    border-radius: 25px;
+    background-color: transparent;
+    padding: 10px ;
+}
+.box{
+    margin-left: 500px;
+    margin-top: 150px;
+    
+    align-content: center;
+    width: 450px;
+    height: 300px;
+    border-radius: 50px;
+    align-items: first baseline;
+    
+    background-color: transparent;
+    border: transparent;
+    box-shadow: 20px 60px 60px;
+}
+.h{
+    margin-top: 100px;
+    margin-left: 500px;
+}
+.label{
+    margin-left: 100px;
+}
+.btn{
+    margin-left: 50px;
+    background-color: transparent;
+    border-radius: 25px;
+    width: 100px;
+}
+body{
+    background-image: url('c:\\Users\\ISMAIL\\Downloads\\wallpaper1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.hh{
+    margin-left: 120px;
+    color: blue;
+}
