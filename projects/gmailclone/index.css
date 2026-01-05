@@ -150,3 +150,32 @@ body {
   height: 36px;
   border-radius: 50%;
 }
+#emailBody{
+    display:none; 
+    border:1px solid black; 
+     padding:10px;
+      margin-top:10px;
+}
+#popup{
+    display:none; 
+    position:fixed; 
+    
+    top:20%;
+    left:30%; 
+    width: 40%;
+    height: 60%;
+    background:white;
+    border:2px solid black;
+    border-radius: 25px;
+    padding:20px;
+    align-items: center;
+    
+}
+.inner{
+    
+    display: flex;            
+  justify-content: center;  
+  align-items: center; 
+    height: 100%;
+    width: 100%;
+}

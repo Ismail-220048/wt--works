@@ -1,0 +1,26 @@
+
+<div onclick="openMail()">Google – Security alert</div>
+
+
+<div id="mailPopup" style="
+  display:none;
+  position:fixed;
+  top:25%;
+  left:35%;
+  width:30%;
+  background:white;
+  border:2px solid black;
+  padding:15px;
+">
+  <h3>Security alert</h3>
+  <p>New sign-in detected on your account.</p>
+  <button onclick="closeMail()">Close</button>
+</div>
+<script>function openMail() {
+  document.getElementById("mailPopup").style.display = "block";
+}
+
+function closeMail() {
+  document.getElementById("mailPopup").style.display = "none";
+}
+</script>

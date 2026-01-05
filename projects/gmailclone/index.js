@@ -15,3 +15,18 @@ function openTab(event, tabId) {
   document.getElementById(tabId).classList.add('active');
   event.target.classList.add('active');
 }
+function openMail(mail) {
+  var sender = mail.querySelector(".sender").innerText;
+  var subject = mail.querySelector(".subject").innerText;
+  var time = mail.querySelector(".time").innerText;
+
+  document.getElementById("popupSender").innerText = sender;
+  document.getElementById("popupSubject").innerText = subject;
+  document.getElementById("popupTime").innerText = time;
+
+  document.getElementById("popup").style.display = "block";
+}
+
+function cls(){
+  document.getElementById("popup").style.display = "none";
+}

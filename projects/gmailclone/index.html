@@ -43,12 +43,22 @@
       </div>
 
       <div id="primary" class="tab-content active">
-        <div class="email">
-          <div class="sender">Google</div>
-          <div class="subject">security alert</div>
-          <div class="time">10:45 AM</div>
-        </div>
-        <div class="email">
+       <div class="email" onclick="openMail(this)">
+  <div class="sender">Google</div>
+  <div class="subject">Security alert</div>
+  <div class="time">10:45 AM</div>
+</div>
+
+<!-- Popup -->
+<div id="popup" >
+  <div class="inner">
+  <h3 id="popupSender"></h3>
+  <p id="popupSubject"></p>
+  <p id="popupTime"></p>
+  <button onclick="cls()">Close</button>
+  </div>
+</div>
+        <div class="email" onclick="openMail(this)">
           <div class="sender">github</div>
           <div class="subject">new sign-in from chrome</div>
           <div class="time">Yesterday</div>
@@ -56,7 +66,7 @@
       </div>
 
       <div id="social" class="tab-content">
-        <div class="email">
+        <div class="email" onclick="openMail(this)">
           <div class="sender">linkedin</div>
           <div class="subject">You appeared in 5 searches</div>
           <div class="time">9:12 AM</div>
@@ -64,7 +74,7 @@
       </div>
 
       <div id="promotions" class="tab-content">
-        <div class="email">
+        <div class="email"onclick="openMail(this)">
           <div class="sender">Ediglobe</div>
           <div class="subject">Internship Completion Certificate</div>
           <div class="time">2 days ago</div>
@@ -72,23 +82,23 @@
       </div>
 
       <div id="Starred" class="tab-content">
-        <div class="email"><div class="sender">Google</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
-        <div class="email"><div class="sender">Microsoft</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+        <div class="email" onclick="openMail(this)"><div class="sender">Google</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+        <div class="email" onclick="openMail(this)"><div class="sender">Microsoft</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
       </div>
 
       <div id="Snoozed" class="tab-content">
-        <div class="email"><div class="sender">GitHub</div><div class="subject">Snoozed mail</div><div class="time">Yesterday</div></div>
+        <div class="email" onclick="openMail(this)"><div class="sender">GitHub</div><div class="subject">Snoozed mail</div><div class="time">Yesterday</div></div>
       </div>
 
       <div id="Sent" class="tab-content">
-        <div class="email"><div class="sender">You</div><div class="subject">Sent mail</div><div class="time">Mon</div></div>
+        <div class="email" onclick="openMail(this)"><div class="sender">You</div><div class="subject">Sent mail</div><div class="time">Mon</div></div>
       </div>
 
       <div id="Drafts" class="tab-content">
-        <div class="email"><div class="sender">Draft</div><div class="subject">Unsent mail</div><div class="time">---</div></div>
+        <div class="email" onclick="openMail(this)"><div class="sender">Draft</div><div class="subject">Unsent mail</div><div class="time">---</div></div>
       </div>
          <div id="Spam" class="tab-content">
-        <div class="email"><div class="sender">Unknown</div><div class="subject">You won a prize!</div><div class="time">---</div></div>
+        <div class="email" onclick="openMail(this)"><div class="sender">Unknown</div><div class="subject">You won a prize!</div><div class="time">---</div></div>
       </div>
 
     </div>
