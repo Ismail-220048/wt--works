@@ -15,6 +15,12 @@
     .table2 th, .table2 td{
          border: 2px solid black;
     }
+    #a, #b {
+  display: none;
+  border: 1px solid black;
+  padding: 10px;
+}
+
    </style>
 </head>
 <body>
@@ -48,6 +54,25 @@
   <tr><td></td><td></td></tr>
   <tr><td></td><td></td></tr>
 </table>
+<p onclick="show(1)">Tab A</p>
+<p onclick="show(2)">Tab B</p>
+
+<div id="a">This is Tab A</div>
+<div id="b">This is Tab B</div>
+<script>function show(n) {
+
+  document.getElementById("a").style.display = "none";
+  document.getElementById("b").style.display = "none";
+
+  if (n == 1) {
+    document.getElementById("a").style.display = "block";
+  }
+
+  if (n == 2) {
+    document.getElementById("b").style.display = "block";
+  }
+}
+</script>
  
 
 </body>
