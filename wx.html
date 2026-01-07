@@ -1,26 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Click & Hover Example</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 100px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 100px;
+      font-size: 18px;
+      margin: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
 
-<div onclick="openMail()">Google – Security alert</div>
-
-
-<div id="mailPopup" style="
-  display:none;
-  position:fixed;
-  top:25%;
-  left:35%;
-  width:30%;
-  background:white;
-  border:2px solid black;
-  padding:15px;
-">
-  <h3>Security alert</h3>
-  <p>New sign-in detected on your account.</p>
-  <button onclick="closeMail()">Close</button>
+<div id="box" onclick="clickBox()" onmouseover="hoverBox()" onmouseout="outBox()">
+  Click or Hover Me
 </div>
-<script>function openMail() {
-  document.getElementById("mailPopup").style.display = "block";
+
+<script>
+function clickBox() {
+  document.getElementById("box").innerHTML = "You clicked me!";
+  document.getElementById("box").style.backgroundColor = "lightgreen";
 }
 
-function closeMail() {
-  document.getElementById("mailPopup").style.display = "none";
+function hoverBox() {
+  document.getElementById("box").innerHTML = "Mouse is over me!";
+  document.getElementById("box").style.backgroundColor = "orange";
+}
+
+function outBox() {
+  document.getElementById("box").innerHTML = "Click or Hover Me";
+  document.getElementById("box").style.backgroundColor = "lightblue";
 }
 </script>
+
+</body>
+</html>

@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gmail UI Clone</title>
 
-  
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
 
+  
   <div class="topbar">
     <div class="logo2">
       <img src="/home/ismail/Downloads/mail.png" alt="Gmail Logo">
@@ -22,6 +22,7 @@
 
   <div class="container">
 
+    
     <div class="sidebar">
       <div class="compose">+ Compose</div>
       <div class="menu">
@@ -34,77 +35,112 @@
       </div>
     </div>
 
+    
     <div class="email-list">
 
+    
       <div class="tabs">
         <div class="tab active" onclick="openTab(event,'primary')">Primary</div>
         <div class="tab" onclick="openTab(event,'social')">Social</div>
         <div class="tab" onclick="openTab(event,'promotions')">Promotions</div>
       </div>
 
+     
       <div id="primary" class="tab-content active">
-       <div class="email" onclick="openMail(this)">
-  <div class="sender">Google</div>
-  <div class="subject">Security alert</div>
-  <div class="time">10:45 AM</div>
-</div>
-
-<!-- Popup -->
-<div id="popup" >
-  <div class="inner">
-  <h3 id="popupSender"></h3>
-  <p id="popupSubject"></p>
-  <p id="popupTime"></p>
-  <button onclick="cls()">Close</button>
-  </div>
-</div>
         <div class="email" onclick="openMail(this)">
-          <div class="sender">github</div>
-          <div class="subject">new sign-in from chrome</div>
+          <div class="sender">Google</div>
+          <div class="subject">Security alert</div>
+          <div class="time">10:45 AM</div>
+        </div>
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">GitHub</div>
+          <div class="subject">New sign-in from Chrome</div>
           <div class="time">Yesterday</div>
         </div>
       </div>
 
+    
       <div id="social" class="tab-content">
         <div class="email" onclick="openMail(this)">
-          <div class="sender">linkedin</div>
+          <div class="sender">LinkedIn</div>
           <div class="subject">You appeared in 5 searches</div>
           <div class="time">9:12 AM</div>
         </div>
       </div>
 
+     
       <div id="promotions" class="tab-content">
-        <div class="email"onclick="openMail(this)">
+        <div class="email" onclick="openMail(this)">
           <div class="sender">Ediglobe</div>
           <div class="subject">Internship Completion Certificate</div>
           <div class="time">2 days ago</div>
         </div>
       </div>
 
+     
       <div id="Starred" class="tab-content">
-        <div class="email" onclick="openMail(this)"><div class="sender">Google</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
-        <div class="email" onclick="openMail(this)"><div class="sender">Microsoft</div><div class="subject">Starred mail</div><div class="time">Today</div></div>
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">Google</div>
+          <div class="subject">Starred mail</div>
+          <div class="time">Today</div>
+        </div>
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">Microsoft</div>
+          <div class="subject">Starred mail</div>
+          <div class="time">Today</div>
+        </div>
       </div>
 
+     
       <div id="Snoozed" class="tab-content">
-        <div class="email" onclick="openMail(this)"><div class="sender">GitHub</div><div class="subject">Snoozed mail</div><div class="time">Yesterday</div></div>
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">GitHub</div>
+          <div class="subject">Snoozed mail</div>
+          <div class="time">Yesterday</div>
+        </div>
       </div>
 
+     
       <div id="Sent" class="tab-content">
-        <div class="email" onclick="openMail(this)"><div class="sender">You</div><div class="subject">Sent mail</div><div class="time">Mon</div></div>
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">You</div>
+          <div class="subject">Sent mail</div>
+          <div class="time">Mon</div>
+        </div>
       </div>
 
       <div id="Drafts" class="tab-content">
-        <div class="email" onclick="openMail(this)"><div class="sender">Draft</div><div class="subject">Unsent mail</div><div class="time">---</div></div>
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">Draft</div>
+          <div class="subject">Unsent mail</div>
+          <div class="time">---</div>
+        </div>
       </div>
-         <div id="Spam" class="tab-content">
-        <div class="email" onclick="openMail(this)"><div class="sender">Unknown</div><div class="subject">You won a prize!</div><div class="time">---</div></div>
+
+      <div id="Spam" class="tab-content">
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">Unknown</div>
+          <div class="subject">You won a prize!</div>
+          <div class="time">---</div>
+        </div>
       </div>
 
     </div>
   </div>
 
-  
-  <script src="index.js"></script>
+  <div id="popup">
+    <div class="inner">
+      <div>
+        <h3 id="popupSender"></h3>
+        <p id="popupSubject"></p>
+        <p id="popupTime"></p>
+        <button onclick="cls()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js">
+  </script>
+
 </body>
 </html>
