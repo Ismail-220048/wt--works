@@ -259,7 +259,7 @@
     justify-content: flex-end;
 }
 
-.compose-footer button {
+.compose-footer input {
     background: #1a73e8;
     color: white;
     border: none;
