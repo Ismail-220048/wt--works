@@ -31,7 +31,7 @@
     }const fileInput = document.getElementById('composeFile');
 const fileNameDisplay = document.getElementById('fileName');
 
-// Show file name when selected
+
 fileInput.addEventListener('change', () => {
     if(fileInput.files.length > 0){
         fileNameDisplay.textContent = "Attached: " + fileInput.files[0].name;
@@ -40,7 +40,7 @@ fileInput.addEventListener('change', () => {
     }
 });
 
-// Optional: Send mail function demo
+
 function sendMail() {
     const to = document.getElementById('composeTo').value;
     const subject = document.getElementById('composeSubject').value;
@@ -53,7 +53,7 @@ function sendMail() {
 
         closeCompose();
 
-        // Clear fields
+        
         document.getElementById('composeTo').value = '';
         document.getElementById('composeSubject').value = '';
         document.getElementById('composeMessage').value = '';
@@ -64,12 +64,11 @@ function sendMail() {
     }
 }
 
-// Close compose popup
+
 function closeCompose() {
     document.getElementById('composePopup').style.display = 'none';
 }
 
-// Open compose popup
 document.querySelector('.compose').addEventListener('click', () => {
     document.getElementById('composePopup').style.display = 'flex';
 });

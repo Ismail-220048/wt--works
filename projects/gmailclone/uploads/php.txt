@@ -1,0 +1,125 @@
+			php 
+	syntax
+<?php 
+ -------------;
+ ?>
+ 
+ variable 
+ 	$var='ismail';
+ 	$float=20.7
+ echo"somting to print"; printing some text 
+ 
+ methods
+ 	$_GET['input NAME'S name']
+ 	$_POST['input NAME'S name']
+ 	
+if statements
+	if(condition){
+		body
+	}
+	elseif(condition){
+		 body
+	}
+	else{
+		bosy
+	}	
+ switch statements
+ 	switch(variable){
+ 	 	case '1':
+ 	 		body
+ 	 	cae 2:
+ 	 	  	body
+ 	 	 case 3:
+ 	 	 }
+
+loops
+	 for( var; var<5;var++){
+	 	body
+	 }
+
+
+
+while(){
+	 body
+}
+
+
+
+arrays
+
+	$var=array('apple','orange');
+	echo $var[0]
+        2 foreach($var as $v){
+        	echo $v;
+        }
+ pushing eliment to array 
+
+ 		array_push($arrayname,'banana','papaya');
+ poping eliment form array
+ 		array_pop(); remove last element in array
+ removing first eliment
+		array_shift();
+reverse array 
+		array_reverse($arrayname);
+count eliments 
+		count($arrayname);
+
+
+	ASSOSIATIVE ARRAY(KEY=>VALUE)
+	
+$arr=array('ismail'=>'1','manu'=>'2");
+echo $arr['ismail']    	// returns the 1 
+
+
+usefull functions 
+	isset($var) //returns true if a variav=ble decalred and not null
+	empty($var) //returns true if a variable is not decalred ,false,null,''
+	
+
+functions
+
+	function fun_name(){
+		body
+	
+	}
+	calling
+		fun_name();
+		
+		
+filtering injection codes
+
+      $var = filter_input(INPUT_POST, 'usernamee',FILTER_SANITIZE_SPECIAL_CHAR);
+      						 FILETR_VALIDATE_INT
+      						 FILETR_VALIFATE_EMAIL
+    
+	
+
+THE INCLUDE() FUNCTION
+
+ include('file.html')
+
+
+cookies
+
+
+setcookie()    / used to set the coockies in the browser
+		setcookie('key','value',time()+(86400 * 2),'path'); set te cookies upto to days valid
+		setcookie('key','value',time()+(86400 -0),'path'); // te coooclieso delete th
+
+
+session
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+

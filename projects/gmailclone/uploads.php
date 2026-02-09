@@ -15,7 +15,7 @@ if (isset($_FILES['file'])) {
 
    
     if (move_uploaded_file($_FILES['file']['tmp_name'], $targetFile)) {
-        echo "File uploaded successfully!<br>";
+        echo "File uploaded successfully!";
         echo "You can download it here: <a href='$targetFile' download>$fileName</a>";
     } else {
         echo "Failed to upload file!";
@@ -25,4 +25,3 @@ if (isset($_FILES['file'])) {
 }
 ?>
 
-?>
