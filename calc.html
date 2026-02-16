@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial;
+    }
+
+    .calculator {
+      border: 2px solid black;
+      padding: 20px;
+      width: 220px;
+      text-align: center;
+    }
+
+    input {
+      width: 200px;
+      height: 40px;
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-align: right;
+    }
+
+    button {
+      width: 45px;
+      height: 40px;
+      font-size: 18px;
+      margin: 3px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="calculator">
+  <input type="text" id="result" disabled>
+
+  <br>
+
+  <button onclick="clr()">C</button>
+  <button onclick="display('/')">/</button>
+  <button onclick="display('*')">*</button>
+  <button onclick="display('-')">-</button>
+
+  <br>
+
+  <button onclick="display('7')">7</button>
+  <button onclick="display('8')">8</button>
+  <button onclick="display('9')">9</button>
+  <button onclick="display('+')">+</button>
+
+  <br>
+
+  <button onclick="display('4')">4</button>
+  <button onclick="display('5')">5</button>
+  <button onclick="display('6')">6</button>
+
+  <br>
+
+  <button onclick="display('1')">1</button>
+  <button onclick="display('2')">2</button>
+  <button onclick="display('3')">3</button>
+
+  <br>
+
+  <button onclick="display('0')">0</button>
+  <button onclick="calculate()">=</button>
+</div>
+
+<script>
+  function display(value) {
+    document.getElementById("result").value += value;
+  }
+
+  function calculate() {
+    let exp = document.getElementById("result").value;
+    document.getElementById("result").value = eval(exp);
+  }
+
+  function clr() {
+    document.getElementById("result").value = "";
+  }
+</script>
+
+</body>
+</html>

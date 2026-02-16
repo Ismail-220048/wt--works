@@ -1,42 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Click & Hover Example</title>
-  <style>
-    #box {
-      width: 200px;
-      height: 100px;
-      background-color: lightblue;
-      text-align: center;
-      line-height: 100px;
-      font-size: 18px;
-      margin: 20px;
-      cursor: pointer;
-    }
-  </style>
+    <title>Website Layout Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Header styling */
+        #header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Navigation styling */
+        #navigation {
+            width: 20%;
+            float: left;
+            background-color: #f1f1f1;
+            padding: 20px;
+            height: 300px; /* fixed height for example */
+        }
+
+        #navigation a {
+            display: block;
+            margin: 10px 0;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #navigation a:hover {
+            color: #4CAF50;
+        }
+
+        /* Content styling */
+        #content {
+            width: 50%;
+            padding: 20px;
+            background-color: #e2e2e2;
+            height: 300px;
+            margin-left: 25%;
+            
+        }
+
+        /* Footer styling */
+        #footer {
+            clear: both;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 100px;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+        }
+
+        label {
+            margin: 5px 0 2px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function showContent(page) {
+            const content = document.getElementById('content');
+            if(page === 'login') {
+                content.innerHTML = `
+                    <h2>Login Page</h2>
+                    <form id="loginForm">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Enter username" required>
+                        
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter password" required>
+                        
+                        <button type="submit">Login</button>
+                    </form>
+                `;
+            } else if(page === 'signup') {
+                content.innerHTML = `
+                    <h2>Sign Up Page</h2>
+                    <form id="signupForm">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter first name" required>
+                        
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Enter last name" required>
+                        
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter email" required>
+                        
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter password" required>
+                        
+                        <button type="submit">Sign Up</button>
+                    </form>
+                `;
+            }
+        }
+    </script>
 </head>
 <body>
 
-<div id="box" onclick="clickBox()" onmouseover="hoverBox()" onmouseout="outBox()">
-  Click or Hover Me
-</div>
+    <div id="header">
+        HEADER (Website Name)
+    </div>
 
-<script>
-function clickBox() {
-  document.getElementById("box").innerHTML = "You clicked me!";
-  document.getElementById("box").style.backgroundColor = "lightgreen";
-}
+    <div id="navigation">
+        <a href="#" onclick="showContent('login')">Login</a>
+        <a href="#" onclick="showContent('signup')">Sign Up</a>
+    </div>
 
-function hoverBox() {
-  document.getElementById("box").innerHTML = "Mouse is over me!";
-  document.getElementById("box").style.backgroundColor = "orange";
-}
+    <div id="content">
+        <h2>Welcome!</h2>
+        <p>Click on the links in the navigation panel to see relevant content here.</p>
+    </div>
 
-function outBox() {
-  document.getElementById("box").innerHTML = "Click or Hover Me";
-  document.getElementById("box").style.backgroundColor = "lightblue";
-}
-</script>
+    <div id="footer">
+        FOOTER
+    </div>
 
 </body>
 </html>

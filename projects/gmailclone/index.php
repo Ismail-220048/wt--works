@@ -1,0 +1,187 @@
+<?php
+include "config.php";
+
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gmail UI Clone</title>
+
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+  
+  <div class="topbar">
+    <div class="logo2">
+      <img src="mail.png" alt="Gmail Logo">
+    </div>
+    <div class="logo">IS-mail</div>
+    <input type="text" class="search" placeholder="Search mail" />
+    <div class="profile"><?php $firstLetter = $_SESSION['user'][0];
+echo $firstLetter;
+?></div>
+  </div>
+
+  <div class="container">
+
+    
+    <div class="sidebar">
+      <div class="compose">+ Compose</div>
+      <div class="menu">
+        <div class="active" onclick="openTab(event,'primary')">Inbox</div>
+        <div onclick="openTab(event,'Starred')">Starred</div>
+        <div onclick="openTab(event,'Snoozed')">Snoozed</div>
+        <div onclick="openTab(event,'Sent')">Sent</div>
+        <div onclick="openTab(event,'Drafts')">Drafts</div>
+        <div onclick="openTab(event,'Spam')">Spam</div>
+      </div>
+    </div>
+
+    
+    <div class="email-list">
+
+    
+      <div class="tabs">
+        <div class="tab active" onclick="openTab(event,'primary')">Primary</div>
+        <div class="tab" onclick="openTab(event,'social')">Social</div>
+        <div class="tab" onclick="openTab(event,'promotions')">Promotions</div>
+      </div>
+
+     
+      <div id="primary" class="tab-content active">
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">Google</div>
+          <div class="subject">Security alert</div>
+          <div class="time">10:45 AM</div>
+        </div>
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">GitHub</div>
+          <div class="subject">New sign-in from Chrome</div>
+          <div class="time">Yesterday</div>
+        </div>
+      </div>
+
+    
+      <div id="social" class="tab-content">
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">LinkedIn</div>
+          <div class="subject">You appeared in 5 searches</div>
+          <div class="time">9:12 AM</div>
+        </div>
+      </div>
+
+     
+      <div id="promotions" class="tab-content">
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">Ediglobe</div>
+          <div class="subject">Internship Completion Certificate</div>
+          <div class="time">2 days ago</div>
+        </div>
+      </div>
+
+     
+      <div id="Starred" class="tab-content">
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">Google</div>
+          <div class="subject">Starred mail</div>
+          <div class="time">Today</div>
+        </div>
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">Microsoft</div>
+          <div class="subject">Starred mail</div>
+          <div class="time">Today</div>
+        </div>
+      </div>
+
+     
+      <div id="Snoozed" class="tab-content">
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">GitHub</div>
+          <div class="subject">Snoozed mail</div>
+          <div class="time">Yesterday</div>
+        </div>
+      </div>
+
+     
+      <div id="Sent" class="tab-content">
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">You</div>
+          <div class="subject">Sent mail</div>
+          <div class="time">Mon</div>
+        </div>
+      </div>
+
+      <div id="Drafts" class="tab-content">
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">Draft</div>
+          <div class="subject">Unsent mail</div>
+          <div class="time">---</div>
+        </div>
+      </div>
+
+      <div id="Spam" class="tab-content">
+        <div class="email" onclick="openMail(this)">
+          <div class="sender">Unknown</div>
+          <div class="subject">You won a prize!</div>
+          <div class="time">---</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="popup">
+    <div class="inner">
+      <div>
+        <h3 id="popupSender"></h3>
+        <p id="popupSubject"></p>
+        <p id="popupTime"></p>
+        <button onclick="cls()">Close</button>
+      </div>
+    </div>
+  </div>
+  
+<div id="composePopup" class="compose-popup">
+  <div class="compose-header">
+    <span>New Message</span>
+    <span class="close-btn" onclick="closeCompose()">✕</span>
+  </div>
+  <form action="uploads.php" method="post" enctype="multipart/form-data">
+  <div class="compose-body">
+    <input type="email" placeholder="To" id="composeTo" required>
+    <input type="text" placeholder="Subject" id="composeSubject" required>
+    <textarea placeholder="Message..." id="composeMessage" required></textarea>
+
+   
+    <label for="composeFile" class="file-label"> upload file</label>
+    <input type="file" id="composeFile" name="file" style="display:none">
+    <span id="fileName"></span> 
+  </div>
+
+  <div class="compose-footer">
+    <input type="submit" name="upload" value="send">
+  </div>
+
+  <div id="uploadMessage" style="margin-top:10px;color:green;"></div>
+  </form>
+</div>
+
+
+
+  <script src="index.js">
+  </script>
+
+</body>
+</html>
+
+<a href="logout.php">Logout</a>
