@@ -1,9 +1,13 @@
 <?php
 include "config.php";
+require __DIR__ . '/vendor/autoload.php';
 
-$client_id = "26266432132-4tv5r1kd1ieprj6mcbj33ktt1q9mkd4d.apps.googleusercontent.com";
-$client_secret = "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";
-$redirect_uri = "http://localhost:8000/callback.php";
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$clientID = $_ENV['GOOGLE_CLIENT_ID'];
+$clientSecret = $_ENV['GOOGLE_CLIENT_SECRET'];
+$redirectUri = $_ENV['GOOGLE_REDIRECT_URI'];
 
 $code = $_GET['code'];
 
@@ -38,16 +42,22 @@ $user_data = json_decode($user_info, true);
 $name = $user_data['name'];
 $email = $user_data['email'];
 
-$check = $conn->prepare("SELECT id FROM users WHERE email=?");
-$check->bind_param("s", $email);
-$check->execute();
-$check->store_result();
-
-if ($check->num_rows == 0) {
-    $stmt = $conn->prepare("INSERT INTO users (name, email, oauth_provider) VALUES (?, ?, 'google')");
-    $stmt->bind_param("ss", $name, $email);
-    $stmt->execute();
-}
+ $existingUser = $usersCollection->findOne(['email' => $email]);
+ if ($existingUser) {
+   if (!isset($_SESSION['user'])) {
+        $_SESSION['user'] = $existingUser['name'];
+        $_SESSION['email'] = $existingUser['email'];
+    }
+    header("Location: inbox.php");
+    exit();
+} else {
+    $usersCollection->insertOne([
+        'name' => $name,
+        'email' => $email,
+        'password' => null,
+        'created_at' => new MongoDB\BSON\UTCDateTime()
+    ]);
+ }
 
 $_SESSION['user'] = $name;
 $_SESSION['email'] = $email;

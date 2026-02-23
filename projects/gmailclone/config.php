@@ -1,10 +1,21 @@
 <?php
 session_start();
 
-$conn = new mysqli("localhost", "gmailuser", "1234", "gmailclone");
+require __DIR__ . '/vendor/autoload.php';
 
+try {
+    
+    $client = new MongoDB\Client("mongodb://localhost:27017");
 
-if ($conn->connect_error) {
-    die("Database connection failed");
+    
+    $db = $client->gmailclone;
+
+    
+    $usersCollection = $db->users;
+    $mailsCollection = $db->mails;
+
+    
+} catch (Exception $e) {
+    die("MongoDB Connection Failed: " . $e->getMessage());
 }
 ?>

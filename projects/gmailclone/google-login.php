@@ -1,6 +1,11 @@
 <?php
-$client_id = "26266432132-4tv5r1kd1ieprj6mcbj33ktt1q9mkd4d.apps.googleusercontent.com";
-$redirect_uri = "http://localhost:8000/callback.php";
+require __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$client_id = $_ENV['GOOGLE_CLIENT_ID'];
+$redirect_uri = $_ENV['GOOGLE_REDIRECT_URI'];
 
 $scope = "email profile";
 

@@ -3,20 +3,20 @@ include "config.php";
 
 if (isset($_POST['login'])) {
 
-    $email = $_POST['email'];
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email=?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
+    
+    $user = $usersCollection->findOne(['email' => $email]);
 
-    if ($user && $user['password'] && password_verify($password, $user['password'])) {
+    if ($user && password_verify($password, $user['password'])) {
+
         $_SESSION['user'] = $user['name'];
         $_SESSION['email'] = $user['email'];
+
         header("Location: inbox.php");
         exit();
+
     } else {
         $error = "Invalid credentials!";
     }

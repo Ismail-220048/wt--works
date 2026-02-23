@@ -1,26 +1,41 @@
 <?php
 include "config.php";
 
+$error = "";
+$check = false;
+
 if (isset($_POST['signup'])) {
 
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $name  = trim($_POST['name']);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $password1 = $_POST['password'];
 
-    $check = $conn->prepare("SELECT id FROM users WHERE email=?");
-    $check->bind_param("s", $email);
-    $check->execute();
-    $check->store_result();
-
-    if ($check->num_rows > 0) {
-        $error = "Email already exists!";
+    // Password validation
+    if (empty($password1) || strlen($password1) < 6) {
+        $check = true;
+        $error = "Password must be at least 6 characters long!";
     } else {
-        $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $name, $email, $password);
-        $stmt->execute();
 
-        header("Location: login.php");
-        exit();
+        $password = password_hash($password1, PASSWORD_DEFAULT);
+
+        // Check existing user
+        $existingUser = $usersCollection->findOne(['email' => $email]);
+
+        if ($existingUser) {
+            $error = "Email already exists!";
+            $check = true;
+        } else {
+
+            $usersCollection->insertOne([
+                'name' => $name,
+                'email' => $email,
+                'password' => $password,
+                'created_at' => new MongoDB\BSON\UTCDateTime()
+            ]);
+
+            header("Location: login.php");
+            exit();
+        }
     }
 }
 ?>
@@ -28,6 +43,7 @@ if (isset($_POST['signup'])) {
 <!DOCTYPE html>
 <html>
 <head>
+    
     <title>Signup - Gmail Clone</title>
     <style>
         body {
@@ -115,13 +131,48 @@ if (isset($_POST['signup'])) {
     <form method="POST">
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
-        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+<div id="strengthMessage"></div>
+        <?php if ($check) echo "<div class='error'>$error</div>"; ?>
         <button name="signup">Signup</button>
     </form>
 
     <div class="login-link">
         Already have an account? <a href="login.php">Login</a>
     </div>
+    <script>
+const passwordInput = document.getElementById("password");
+const strengthMessage = document.getElementById("strengthMessage");
+
+passwordInput.addEventListener("keyup", function() {
+    const password = passwordInput.value;
+    let strength = 0;
+
+    if (password.length >= 6) strength++;
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[a-z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+    switch (strength) {
+        case 0:
+        case 1:
+            strengthMessage.innerHTML = "Weak Password";
+            strengthMessage.style.color = "red";
+            break;
+        case 2:
+        case 3:
+            strengthMessage.innerHTML = "Medium Password";
+            strengthMessage.style.color = "orange";
+            break;
+        case 4:
+        case 5:
+            strengthMessage.innerHTML = "Strong Password";
+            strengthMessage.style.color = "green";
+            break;
+    }
+});
+</script>
 </div>
 
 </body>
