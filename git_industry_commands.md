@@ -4,6 +4,7 @@
         -Sets the global username for all Git commits on the system.
         SYNTAX:-
               git config --global user.name Ismail-220048
+              
               <img width="394" height="44" alt="p1" src="https://github.com/user-attachments/assets/675c5ba9-381a-41ed-8f94-ca218adf4ec1" />
 
               
@@ -12,7 +13,6 @@
       -Sets the global usermail for all git commits on the system
       SYNTAX;-
             git config --global user.email n22********@gmail.com
-            
             <img width="463" height="45" alt="p2" src="https://github.com/user-attachments/assets/c18a0085-3a7d-4e3b-a342-fef86b5e2b9b" />
 
   • **git config --list**
@@ -23,9 +23,9 @@
               System level
               
               Global level
-              
               Local (repository) level
-              <img width="567" height="172" alt="p5" src="https://github.com/user-attachments/assets/89ee0a46-2ce2-43de-9e44-b6b89e7a729b" />
+              <img width="567" height="172" alt="p5" src="https://github.com/user-attachments/assets/1d73c22e-74f7-49f5-9464-e3d3cf296f3f"/>
+
 
 
   • **git config --unset**
@@ -105,6 +105,27 @@
 
       
 **• git diff --staged**
+       Shows differences between:
+        
+        Staging area
+        
+        Last commit
+        <img width="569" height="402" alt="p17" src="https://github.com/user-attachments/assets/a4751de4-0413-4bdf-95bf-e76634a208b1" />
+
 **• git blame**
+      -Shows who last modified each line of a file.
+          Very useful for debugging and accountability
+      SYNTAX:-
+      _git blame <file-name>_
+      
+      <img width="606" height="64" alt="P18" src="https://github.com/user-attachments/assets/1fc882a0-3f6f-468d-afa5-0871c4682bcf" />
+
 **• git reflog**
+        -Shows history of all HEAD movements.
+        -Even deleted commits can be recovered using reflog.
+        <img width="978" height="103" alt="p19" src="https://github.com/user-attachments/assets/d6bdde44-c81f-4445-975c-70a7c18b1013" />
+
+
 **• git shortlog**
+      Summarizes commits grouped by author.
+      <img width="427" height="78" alt="p20" src="https://github.com/user-attachments/assets/9713a261-335b-478c-89ff-c94e9e458c38" />
