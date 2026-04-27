@@ -15,9 +15,9 @@ $token_url = "https://oauth2.googleapis.com/token";
 
 $data = [
     'code' => $code,
-    'client_id' => $client_id,
-    'client_secret' => $client_secret,
-    'redirect_uri' => $redirect_uri,
+    'client_id' => $clientID,
+    'client_secret' => $clientSecret,
+    'redirect_uri' => $redirectUri,
     'grant_type' => 'authorization_code'
 ];
 
@@ -31,7 +31,16 @@ $options = [
 
 $context = stream_context_create($options);
 $response = file_get_contents($token_url, false, $context);
+
+if ($response === false) {
+    die("Error fetching token");
+}
+
 $token = json_decode($response, true);
+
+if (!isset($token['access_token'])) {
+    die("Access token not found in response.");
+}
 
 $user_info = file_get_contents(
     "https://www.googleapis.com/oauth2/v2/userinfo?access_token=" . $token['access_token']
@@ -42,13 +51,13 @@ $user_data = json_decode($user_info, true);
 $name = $user_data['name'];
 $email = $user_data['email'];
 
- $existingUser = $usersCollection->findOne(['email' => $email]);
- if ($existingUser) {
-   if (!isset($_SESSION['user'])) {
+$existingUser = $usersCollection->findOne(['email' => $email]);
+if ($existingUser) {
+    if (!isset($_SESSION['user'])) {
         $_SESSION['user'] = $existingUser['name'];
         $_SESSION['email'] = $existingUser['email'];
     }
-    header("Location: inbox.php");
+    header("Location: index.php?success=Welcome+from+Google!");
     exit();
 } else {
     $usersCollection->insertOne([
@@ -57,10 +66,10 @@ $email = $user_data['email'];
         'password' => null,
         'created_at' => new MongoDB\BSON\UTCDateTime()
     ]);
- }
+}
 
 $_SESSION['user'] = $name;
 $_SESSION['email'] = $email;
 
-header("Location: inbox.php");
+header("Location: index.php?success=Welcome+from+Google!");
 exit();

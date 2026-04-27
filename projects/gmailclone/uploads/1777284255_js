@@ -1,0 +1,63 @@
+					java script tags 
+creating variables 
+		let x=100;
+		let y='ismail'
+consol.log(x) - prints the value into the console of browser
+
+ use full funtions 
+ 
+  1)   .onclick  = on  click on the button to do some task like alling functions 
+ 		 example document.getelementbyid(id).onclick=function(){
+ 		  username=document.getelementbyid(id).value;
+  //.value takes the value from id and assign it 
+ 		 }
+ 		 // reads value from id1 and assign to uername form webpage 
+  2) .textcontent =text
+  	it replace the text with assigned text
+  
+   3) window.prompt('promt') 
+   		pop up a alert box to take input values from user it takes in the form of string 
+   
+   4) .checked 
+          	it is help to fingd user is selected the radio button or not / checkboxes 
+
+
+
+if statement
+if(conditoin){
+//
+}
+
+switch(){
+   case 1;
+       //SUDfh;oiq
+   case 2;
+       // simthifng
+    default:
+        nkjfklasfe
+}
+
+			string methods
+			
+			
+						
+.charAt(index)  	// return the a charecter at specified index
+.indexof('charecter')   // return first accurance of charector  index in string
+.lastindexof('charecter')    // oppsite of indexof()
+.trim()  		// removes spaces
+.tolowercase()       
+.touppercase()
+.repeat(3)     		 //repeats the string 3 time
+.startsWith('charector')		// checks the string is strats with given charector
+.endswith()
+.includes()   //  check the give  char in there or not in given sting
+.replaceAll('1','2')    //replace 1 with 2
+.padstart(10,'0')     // add 0's to string until to  get the length od the string is 10 
+.padend()
+sting slicing          -----     .slice(0,4)
+method chaining----- adding methods in one ine like charat(0).tolower().trim();
+
+ 
+   
+   
+   

@@ -1,173 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gmail UI Clone</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IS-mail | The Future of Communication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-  <link rel="stylesheet" href="index.css" />
+        body {
+            background: #f0f4f8;
+            color: #334155;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(78, 205, 196, 0.1), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(26, 115, 232, 0.1), transparent 25%);
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1a73e8, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 15px;
+        }
+
+        .btn-login {
+            color: #475569;
+            background: transparent;
+        }
+        .btn-login:hover {
+            color: #1a73e8;
+            background: rgba(26, 115, 232, 0.05);
+        }
+
+        .btn-signup {
+            background: linear-gradient(135deg, #1a73e8, #4ECDC4);
+            color: white;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+        }
+
+        .btn-signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 115, 232, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 10;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(78, 205, 196, 0.15);
+            color: #0d9488;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            background: linear-gradient(135deg, #1a73e8, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 20px;
+            color: #64748b;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-inline: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        /* Feature Cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 5% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 24px;
+            text-align: left;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #e0e7ff, #ccfbf1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #1a73e8;
+            margin-bottom: 25px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 42px; }
+            .hero-buttons { flex-direction: column; }
+        }
+    </style>
 </head>
-
 <body>
 
-  
-  <div class="topbar">
-    <div class="logo2">
-      <img src="mail.png" alt="Gmail Logo">
-    </div>
-    <div class="logo">IS-mail</div>
-    <input type="text" class="search" placeholder="Search mail" />
-    <div class="profile">I</div>
-  </div>
-
-  <div class="container">
-
-    
-    <div class="sidebar">
-      <div class="compose">+ Compose</div>
-      <div class="menu">
-        <div class="active" onclick="openTab(event,'primary')">Inbox</div>
-        <div onclick="openTab(event,'Starred')">Starred</div>
-        <div onclick="openTab(event,'Snoozed')">Snoozed</div>
-        <div onclick="openTab(event,'Sent')">Sent</div>
-        <div onclick="openTab(event,'Drafts')">Drafts</div>
-        <div onclick="openTab(event,'Spam')">Spam</div>
-      </div>
-    </div>
-
-    
-    <div class="email-list">
-
-    
-      <div class="tabs">
-        <div class="tab active" onclick="openTab(event,'primary')">Primary</div>
-        <div class="tab" onclick="openTab(event,'social')">Social</div>
-        <div class="tab" onclick="openTab(event,'promotions')">Promotions</div>
-      </div>
-
-     
-      <div id="primary" class="tab-content active">
-        <div class="email" onclick="openMail(this)">
-          <div class="sender">Google</div>
-          <div class="subject">Security alert</div>
-          <div class="time">10:45 AM</div>
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="IS-mail Logo">
+            <span class="logo-text">IS-mail</span>
+        </a>
+        <div class="nav-links">
+            <a href="login.php" class="btn btn-login">Sign In</a>
+            <a href="signup.php" class="btn btn-signup">Get Started Free</a>
         </div>
-        <div class="email" onclick="openMail(this)">
-          <div class="sender">GitHub</div>
-          <div class="subject">New sign-in from Chrome</div>
-          <div class="time">Yesterday</div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="pill">✨ v2.0 - Completely Redesigned</div>
+            <h1>Email that feels <br><span>Seamless & Secure.</span></h1>
+            <p class="subtitle">IS-mail is a modern, privacy-focused email experience. Send attachments, receive real-time notifications, and enjoy a beautiful glassmorphic interface.</p>
+            <div class="hero-buttons">
+                <a href="signup.php" class="btn btn-signup" style="padding: 16px 36px; font-size: 18px;">Create Free Account</a>
+                <a href="login.php" class="btn btn-login" style="padding: 16px 36px; font-size: 18px; border: 1px solid #cbd5e1;">Go to Mailbox</a>
+            </div>
         </div>
-      </div>
+    </header>
 
-    
-      <div id="social" class="tab-content">
-        <div class="email" onclick="openMail(this)">
-          <div class="sender">LinkedIn</div>
-          <div class="subject">You appeared in 5 searches</div>
-          <div class="time">9:12 AM</div>
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Lightning Fast</h3>
+            <p>Experience an ultra-responsive interface. Built with modern web technologies that guarantee instant interactions without page reloads.</p>
         </div>
-      </div>
-
-     
-      <div id="promotions" class="tab-content">
-        <div class="email" onclick="openMail(this)">
-          <div class="sender">Ediglobe</div>
-          <div class="subject">Internship Completion Certificate</div>
-          <div class="time">2 days ago</div>
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Secure by Design</h3>
+            <p>Your data stays yours. IS-mail utilizes industry-leading MongoDB security models and Google OAuth to ensure your communications are locked down.</p>
         </div>
-      </div>
-
-     
-      <div id="Starred" class="tab-content">
-        <div class="email" onclick="openMail(this)">
-          <div class="sender">Google</div>
-          <div class="subject">Starred mail</div>
-          <div class="time">Today</div>
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-bell"></i></div>
+            <h3>Real-Time Alerts</h3>
+            <p>Never miss a beat. With continuous silent polling, you get notified instantaneously when an important email hits your inbox.</p>
         </div>
-        <div class="email" onclick="openMail(this)">
-          <div class="sender">Microsoft</div>
-          <div class="subject">Starred mail</div>
-          <div class="time">Today</div>
-        </div>
-      </div>
+    </section>
 
-     
-      <div id="Snoozed" class="tab-content">
-        <div class="email" onclick="openMail(this)">
-          <div class="sender">GitHub</div>
-          <div class="subject">Snoozed mail</div>
-          <div class="time">Yesterday</div>
-        </div>
-      </div>
-
-     
-      <div id="Sent" class="tab-content">
-        <div class="email" onclick="openMail(this)">
-          <div class="sender">You</div>
-          <div class="subject">Sent mail</div>
-          <div class="time">Mon</div>
-        </div>
-      </div>
-
-      <div id="Drafts" class="tab-content">
-        <div class="email" onclick="openMail(this)">
-          <div class="sender">Draft</div>
-          <div class="subject">Unsent mail</div>
-          <div class="time">---</div>
-        </div>
-      </div>
-
-      <div id="Spam" class="tab-content">
-        <div class="email" onclick="openMail(this)">
-          <div class="sender">Unknown</div>
-          <div class="subject">You won a prize!</div>
-          <div class="time">---</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div id="popup">
-    <div class="inner">
-      <div>
-        <h3 id="popupSender"></h3>
-        <p id="popupSubject"></p>
-        <p id="popupTime"></p>
-        <button onclick="cls()">Close</button>
-      </div>
-    </div>
-  </div>
-  
-<div id="composePopup" class="compose-popup">
-  <div class="compose-header">
-    <span>New Message</span>
-    <span class="close-btn" onclick="closeCompose()">✕</span>
-  </div>
-  <form action="uploads.php" method="post" enctype="multipart/form-data">
-  <div class="compose-body">
-    <input type="email" placeholder="To" id="composeTo" required>
-    <input type="text" placeholder="Subject" id="composeSubject" required>
-    <textarea placeholder="Message..." id="composeMessage" required></textarea>
-
-   
-    <label for="composeFile" class="file-label"> upload file</label>
-    <input type="file" id="composeFile" name="file" style="display:none">
-    <span id="fileName"></span> 
-  </div>
-
-  <div class="compose-footer">
-    <input type="submit" name="upload" value="send">
-  </div>
-
-  <div id="uploadMessage" style="margin-top:10px;color:green;"></div>
-  </form>
-</div>
-
-
-
-  <script src="index.js">
-  </script>
+    <footer>
+        <p>&copy; 2026 IS-mail. Developed by Ismail. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
